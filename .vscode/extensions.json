@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "christian-kohler.path-intellisense",
+        "christian-kohler.npm-intellisense",
+        "dbaeumer.vscode-eslint",
+        "xabikos.javascriptsnippets",
+        "eg2.vscode-npm-script"
+    ]
+}

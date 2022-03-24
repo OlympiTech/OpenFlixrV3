@@ -1,0 +1,29 @@
+{
+  "name": "openflixr",
+  "version": "3.0.0-1",
+  "description": "OpenFlixr Media Server - All-In-One Solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlympiTech/OpenFlixrV3.git"
+  },
+  "keywords": [
+    "plex",
+    "sonarr",
+    "radarr",
+    "Home",
+    "Media"
+  ],
+  "author": "-Z3US-, OlympiTech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OlympiTech/OpenFlixrV3/issues"
+  },
+  "homepage": "https://github.com/OlympiTech/OpenFlixrV3#readme",
+  "devDependencies": {
+    "eslint": "^8.11.0"
+  }
+}
