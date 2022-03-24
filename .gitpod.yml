@@ -1,0 +1,8 @@
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - xabikos.JavaScriptSnippets
+    - eg2.vscode-npm-script
+    - christian-kohler.npm-intellisense
+    - christian-kohler.path-intellisense
