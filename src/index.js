@@ -24,7 +24,7 @@ var { argv } = require("yargs")
 	.option("d", {
 		alias: "debug",
 		default: false,
-		describe: "enable debug messages for the duration of the session",
+		describe: "Enable debug messages for the duration of the session",
 		type: "boolean",
 		strict: true
 	})
@@ -41,8 +41,8 @@ if (argv.setup === true || argv.debug === true) {
 			}
 			dbg("Debugging enabled on first setup.");
 			dbg("Performing SUDO check (SUDO required for setup)");
-			// sudoCheck();
-			initialSetup;
+			sudoCheck();
+			initialSetup();
 		} else if (argv.debug === true) {
 			global.debugEnabled = true;
 		}
