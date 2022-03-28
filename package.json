@@ -2,9 +2,9 @@
   "name": "openflixr",
   "version": "3.0.0-1",
   "description": "OpenFlixr Media Server - All-In-One Solution",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "npm test index.js"
+    "test": "npm test ./src/index.js --debug --setup"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,9 @@
   "homepage": "https://github.com/OlympiTech/OpenFlixrV3#readme",
   "devDependencies": {
     "eslint": "^8.11.0"
+  },
+  "dependencies": {
+    "@olympitech/openflixr-logger": "^1.0.1",
+    "yargs": "^17.4.0"
   }
 }
