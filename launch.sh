@@ -1,1 +1,1 @@
-node '/opt/openflixr3/main.ps1' $@
+node '/opt/openflixr3/src/index.js' $@
