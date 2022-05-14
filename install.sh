@@ -72,7 +72,7 @@ main() {
     #cd /opt
     dependancies
     nodeinst
-    git clone https://github.com/OlympiTech/OpenFLIXR3 ${INSTALL_DIR}
+    git clone https://github.com/OlympiTech/OpenFlixrV3 ${INSTALL_DIR}
     symlink_of3
     set_permissions
 }
