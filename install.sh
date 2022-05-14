@@ -73,8 +73,8 @@ main() {
     dependancies
     nodeinst
     git clone https://github.com/OlympiTech/OpenFlixrV3 ${INSTALL_DIR}
-    npm i ${INSTALL_DIR}
     symlink_of3
     set_permissions
+    npm i ${INSTALL_DIR}
 }
 main
