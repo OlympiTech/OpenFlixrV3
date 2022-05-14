@@ -1,0 +1,1 @@
+node '/opt/openflixr3/main.ps1' $@
