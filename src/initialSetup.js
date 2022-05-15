@@ -1,3 +1,9 @@
+const { dbg } = require("./helpers.js");
+
 module.exports = function run() {
-	console.log("script ran straight away");
+	dbg("Initial Setup triggered");
 };
+
+//function dockerCheck() {
+
+//}
