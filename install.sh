@@ -10,14 +10,15 @@ dependancies() {
     grep \
     sed \
     neofetch \
+    nodejs \
+    npm \
     sqlite3 > /dev/null 2>&1 || echo "Failed to install dependencies from apt. Seek help from the support server"
 }
 
 nodeinst() {
-    echo "Starting node install"
+    read -p "Waiting five secs to check script posstion" -t 5
     if [ ! "node --version" ]; then
     echo "Node not installed, Installing"
-        apt update
         apt install nodejs npm -y
         npm install n -g
         n install latest
