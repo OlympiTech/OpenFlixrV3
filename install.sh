@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 dependancies() {
+    echo "Updating Package Cache"
+    apt update
     echo "Installing dependencies."
-    apt-get -y install \
+    apt -y install \
     apt-transport-https \
     git \
     grep \
