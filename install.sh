@@ -14,7 +14,9 @@ dependancies() {
 }
 
 nodeinst() {
+    echo "Starting node install"
     if [ ! "node --version" ]; then
+    echo "Node not installed, Installing"
         apt update
         apt install nodejs npm -y
         npm install n -g
