@@ -16,7 +16,7 @@ dependancies() {
 nodeinst() {
     if [ ! "node --version" ]; then
         apt update
-        apt install node npm -y
+        apt install nodejs npm -y
         npm install n -g
         n install latest
     fi
