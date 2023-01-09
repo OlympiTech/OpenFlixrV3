@@ -1,5 +1,6 @@
 const { DEBUG, FATAL } = require("@olympitech/openflixr-logger");
 
+
 function isRequired(arg) {
 	throw new Error(`${arg} is a required argument`);
 }

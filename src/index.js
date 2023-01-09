@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+/* eslint-disable no-constant-condition */
 // requirements
 global.argv = "";
 global.debugEnabled = "";
-const { sudoCheck , dbg } = require("./helpers.js");
-const { FATAL } = require("@olympitech/openflixr-logger");
+const { sudoCheck , dbg, antiSudoCheck } = require("./helpers.js");
+const { FATAL, INFO } = require("@olympitech/openflixr-logger");
 const initialSetup = require("./initialSetup");
 
 // COMMAND LINE HANDLING
@@ -13,7 +14,7 @@ var { argv } = require("yargs")
 	.example("of3 --setup")
 	.strict(true)
 	.version("3.0.0")
-	.epilogue("Copywrite Olympitech 2022")
+	.epilogue("Copywrite Olympitech 2023")
 	.option("setup", {
 		default: false,
 		describe: "Inital run and setup of all related packages and software.",
@@ -27,21 +28,21 @@ var { argv } = require("yargs")
 		type: "boolean",
 		strict: true
 	})
-	.option("dockerinstall", { 
+	.option("docker-install", { 
 		default: false,
 		describe: "Install docker only",
 		type: "Boolean",
 		group: ("Install", "Docker:"),
 		strict: true
 	})
-	.option("dockeruninstall", { 
+	.option("docker-uninstall", { 
 		default: false,
 		describe: "uninstall docker only",
 		type: "Boolean",
 		group: ("uninstall", "Docker:"),
 		strict: true
 	})
-	.option("dockerrefresh", { 
+	.option("docker-refresh", { 
 		default: false,
 		describe: "Refresh docker installation only",
 		type: "Boolean",
@@ -61,7 +62,7 @@ if (argv.setup === true || argv.debug === true) {
 			}
 			dbg("Debugging enabled on first setup.");
 			dbg("Performing SUDO check (SUDO required for setup)");
-			sudoCheck();
+			//sudoCheck();
 			initialSetup();
 		} else if (argv.debug === true) {
 			global.debugEnabled = true;
@@ -71,10 +72,17 @@ if (argv.setup === true || argv.debug === true) {
 	}
 }
 
-if (argv.dockerinstall) {
+if (!(argv.setup === true)) {
+	dbg("No setup parameter found, running anti-sudo");
+	antiSudoCheck();
+	dbg("Anti-Sudo Passed");
+}
+
+if ("argv.docker-install") {
 	//
-} else if (argv.dockeruninstall) {
+} else if ("argv.docker-uninstall") {
 	//
-} else if (argv.dockerrefresh) {
-	//
+} else if ("argv.docker-refresh") {
+	INFO("Refreshing docker images for updates.");
+	dbg("This does nothing at this time.");
 }
