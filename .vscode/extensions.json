@@ -2,8 +2,12 @@
     "recommendations": [
         "christian-kohler.path-intellisense",
         "christian-kohler.npm-intellisense",
-        "dbaeumer.vscode-eslint",
+        "eg2.vscode-npm-script",
         "xabikos.javascriptsnippets",
-        "eg2.vscode-npm-script"
+        "dbaeumer.vscode-eslint",
+        "waderyan.nodejs-extension-pack",
+        "luis.node-project-version",
+        "formulahendry.docker-extension-pack",
+        "sandipchitale.docker-dive"
     ]
 }
