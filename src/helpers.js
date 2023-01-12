@@ -1,5 +1,5 @@
-const { DEBUG, FATAL } = require("@olympitech/openflixr-logger");
-
+const { DEBUG, FATAL, WARN } = require("@olympitech/openflixr-logger");
+const { exec } = require("child_process");
 
 function isRequired(arg) {
 	throw new Error(`${arg} is a required argument`);
@@ -26,4 +26,26 @@ function antiSudoCheck() {
 	}
 }
 
-module.exports = { dbg, sudoCheck, antiSudoCheck };
+function runcmd(command = isRequired("Command to be run")) {
+	exec(command, (error, stdout) => {
+		if (error) {
+			WARN(`exec error: ${error}`);
+			return;
+		} else {
+			dbg(stdout);
+		}
+	});
+}
+
+function packageCheck(package = isRequired("Package to be checked for"), callback) {
+	exec(`which ${package}`, (error, stdout) => {
+		if (error) {
+			console.log(`exec error: ${error}`);
+			return;
+		} else {
+			callback(stdout);
+		}
+	});
+}
+
+module.exports = { dbg, sudoCheck, antiSudoCheck, runcmd };
