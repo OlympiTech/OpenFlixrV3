@@ -1,24 +1,24 @@
-const { WARN, FATAL } = require("@olympitech/openflixr-logger");
-const { exec } = require("child_process");
-const { dbg, runcmd, packageCheck } = require("./helpers");
+const {FATAL, TRACE} = require("@olympitech/openflixr-logger");
+const {dbg, runcmd, packageCheck} = require("./helpers");
 const fs = require("fs");
 
 function install() {
 	dbg("Docker install started");
-	dbg("Checking for docker installation")
-	dcheck();
-	dbg("Setting up Dockers Package Repository");
-	dAptReqs();
-	dKeyRings();
-	dAptAddRepo();
-	packageCheck("docker") {
-		if 
-	}
-	// let dpackage
-	
+	dbg("Checking for docker installation");
+	packageCheck("docker").then((res) => {
+		if (!res) {
+			TRACE("Package not found.");
+			dbg("Setting up Dockers Package Repository");
+			dAptReqs();
+			dKeyRings();
+			dAptAddRepo();
+			dAptInstall();
+		} else {
+			daptremove();
+			dAptInstall();
+		}
+	});
 }
-
-function dcheck()
 
 function dAptReqs() {
 	runcmd("apt udpate");
@@ -64,7 +64,7 @@ function dAptAddRepo() {
 	}
 }
 
-function daptinstall() {
+function dAptInstall() {
 	runcmd("apt update");
 	runcmd("apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin");
 }
@@ -74,4 +74,6 @@ function daptremove() {
 	runcmd("apt-get remove -y docker-ce docker-ce-cli containerd.io docker-compose-plugin");
 }
 
-module.exports = { install };
+module.exports = {
+	install
+};
