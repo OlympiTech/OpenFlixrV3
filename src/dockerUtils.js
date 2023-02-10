@@ -1,23 +1,15 @@
-const {FATAL, TRACE} = require("@olympitech/openflixr-logger");
+const {FATAL} = require("@olympitech/openflixr-logger");
 const {dbg, runcmd, packageCheck} = require("./helpers");
 const fs = require("fs");
 
 function install() {
 	dbg("Docker install started");
-	dbg("Checking for docker installation");
-	packageCheck("docker").then((res) => {
-		if (!res) {
-			TRACE("Package not found.");
-			dbg("Setting up Dockers Package Repository");
-			dAptReqs();
-			dKeyRings();
-			dAptAddRepo();
-			dAptInstall();
-		} else {
-			daptremove();
-			dAptInstall();
-		}
-	});
+	dbg("Setting up Dockers Package Repository");
+	dAptReqs();
+	dKeyRings();
+	dAptAddRepo();
+	dbg("Installing Docker Packages");
+	dAptInstall();
 }
 
 function dAptReqs() {
@@ -75,5 +67,5 @@ function daptremove() {
 }
 
 module.exports = {
-	install
+	
 };

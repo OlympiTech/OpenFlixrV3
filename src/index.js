@@ -16,14 +16,14 @@ var { argv } = require("yargs")
 	.version("3.0.0")
 	.epilogue("Copywrite Olympitech 2023")
 	.option("setup", {
-		default: false,
+		default: true,
 		describe: "Inital run and setup of all related packages and software.",
 		group: ("setup", "First Run"),
 		type: "boolean",
 		strict: true
 	})
 	.option("debug", {
-		default: false,
+		default: true,
 		describe: "enable debug messages for the duration of the session",
 		type: "boolean",
 		strict: true
@@ -85,4 +85,5 @@ if ("argv.docker-install") {
 } else if ("argv.docker-refresh") {
 	INFO("Refreshing docker images for updates.");
 	dbg("This does nothing at this time.");
+
 }
